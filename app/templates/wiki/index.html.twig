@@ -19,6 +19,16 @@
             {# <div class="prose max-w-none">
                 {{ page.content|raw }}
             </div> #}
+
+            {# --- BOUTON DELETE (Invisible pour les visiteurs si tu ajoutes une condition is_granted) --- #}
+            <div class="flex justify-end mb-4">
+                <form method="post" action="{{ path('app_wiki_delete', {'id': page.id}) }}" onsubmit="return confirm('Sûr de vouloir supprimer ça ?');">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ page.id) }}">
+                    <button class="text-red-500 hover:text-red-700 text-sm font-bold underline">
+                        Supprimer cette page 🗑️
+                    </button>
+                </form>
+            </div>
         {% endblock %}
 
     </twig:WikiCard>

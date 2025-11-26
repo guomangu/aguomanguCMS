@@ -68,3 +68,7 @@ a copier dans les pages
 ./frankenphp-linux-x86_64 php-cli app/bin/console make:entity
 
 ./frankenphp-linux-x86_64 php-cli app/bin/console cache:clear
+
+./frankenphp-linux-x86_64 php-cli app/bin/console make:controller WikiController
+
+./frankenphp-linux-x86_64 php-cli app/bin/console make:form WikiPageType WikiPage

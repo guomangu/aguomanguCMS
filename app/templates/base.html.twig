@@ -11,7 +11,25 @@
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
     </head>
-    <body class="p-2">
-        {% block body %}{% endblock %}
+    <body class="bg-gray-100 min-h-screen">
+        <header class="bg-white shadow mb-6">
+            <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+                <div class="text-lg font-bold text-gray-800">
+                    Mon Wiki
+                </div>
+                <nav class="space-x-4">
+                    <a href="{{ path('app_wiki_index') }}" class="text-sm font-medium text-gray-700 hover:text-blue-600">
+                        <button class="bg-gray-600 text-white px-4 py-2 rounded-md hover:bg-gray-700">wiki</button>
+                    </a>
+                    <a href="{{ path('admin') }}" class="text-sm font-medium text-gray-700 hover:text-blue-600">
+                        <button class="bg-gray-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">admin</button>
+                    </a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="max-w-6xl mx-auto px-4">
+            {% block body %}{% endblock %}
+        </main>
     </body>
 </html>
