@@ -1,35 +1,56 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+<html lang="{{ app.request.locale|split('_')[0] }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body class="bg-gray-100 min-h-screen">
-        <header class="bg-white shadow mb-6">
-            <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-                <div class="text-lg font-bold text-gray-800">
-                    Mon Wiki
-                </div>
-                <nav class="space-x-4">
-                    <a href="{{ path('app_wiki_index') }}" class="text-sm font-medium text-gray-700 hover:text-blue-600">
-                        <button class="bg-gray-600 text-white px-4 py-2 rounded-md hover:bg-gray-700">wiki</button>
-                    </a>
-                    <a href="{{ path('admin') }}" class="text-sm font-medium text-gray-700 hover:text-blue-600">
-                        <button class="bg-gray-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">admin</button>
-                    </a>
-                </nav>
-            </div>
-        </header>
+    {% block meta %}
+        {{ include('@SuluWebsite/Extension/seo.html.twig', {
+            seo: extension.seo|default([]),
+            content: content|default([]),
+            localizations: localizations|default([]),
+            shadowBaseLocale: shadowBaseLocale|default(),
+        }) }}
+    {% endblock %}
 
-        <main class="max-w-6xl mx-auto px-4">
-            {% block body %}{% endblock %}
-        </main>
-    </body>
+    {% block style %}{% endblock %}
+</head>
+<body>
+    <header>
+        {% block header %}
+            <nav>
+                <ul>
+                    <li>
+                        <a href="{{ sulu_content_root_path() }}">Homepage</a>
+                    </li>
+
+                    {% for item in sulu_navigation_root_tree('main') %}
+                        <li>
+                            <a href="{{ sulu_content_path(item.url, item.webspaceKey) }}"
+                               title="{{ item.title }}">{{ item.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        {% endblock %}
+    </header>
+
+    <form action="{{ path('sulu_search.website_search') }}" method="GET">
+        <input name="q" type="text" placeholder="Search"/>
+        <input type="submit" value="Go"/>
+    </form>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        {% block footer %}
+            <p>Copyright {{ 'now'|date('Y') }} SULU</p>
+        {% endblock %}
+    </footer>
+
+    {% block javascripts %}{% endblock %}
+</body>
 </html>

@@ -1,19 +1,86 @@
 # Commande magique : Le binaire exécute le fichier composer.phar
 # On crée le projet dans le sous-dossier 'app'
 
-/home/guillaume/Bureau/aguomangu/frankenphp-linux-x86_64 php-cli composer.phar create-project symfony/skeleton app
+./frankenphp-linux-x86_64 php-cli composer.phar create-project sulu/skeleton app "^2.6"
+# Crée le dossier aguomCMS avec la version stable 2.6
+
+dans .env
+DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"
+
+./frankenphp-linux-x86_64 php-cli app/bin/console doctrine:schema:update --force --complete
+./frankenphp-linux-x86_64 php-cli app/bin/console doctrine:fixtures:load --no-interaction
+./frankenphp-linux-x86_64 php-cli app/bin/console sulu:security:role:create
+./frankenphp-linux-x86_64 php-cli app/bin/console sulu:security:user:create admin admin admin admin@gmail.com en admin azerty
+
+./frankenphp-linux-x86_64 php-server --listen :8081 -r app/public/
+
+
+
+
+///
+./frankenphp-linux-x86_64 php-cli composer.phar require looooooooool -d app/
+
+./frankenphp-linux-x86_64 php-cli app/bin/console doctrine:schema:update --force
+./frankenphp-linux-x86_64 php-cli composer.phar require sulu/form-bundle -d app/
+./frankenphp-linux-x86_64 php-cli composer.phar require sulu/article-bundle -d app/
+./frankenphp-linux-x86_64 php-cli composer.phar require sulu/redirect-bundle -d app/
+./frankenphp-linux-x86_64 php-cli composer.phar require sulu/community-bundle:^2.0@dev -d app/
+./frankenphp-linux-x86_64 php-cli composer.phar require sulu/comment-bundle -d app/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+VPRE
+/////
 
 ./frankenphp-linux-x86_64 php-cli composer.phar require symfony/orm-pack -d app/
 
 ./frankenphp-linux-x86_64 php-cli composer.phar require symfony/maker-bundle --dev -d app/
 
-
-
 ./frankenphp-linux-x86_64 php-cli app/bin/console doctrine:schema:create
 
+./frankenphp-linux-x86_64 php-server --listen :8081 -r app/public/
 
 
-./frankenphp-linux-x86_64 php-server --listen :8080 -r app/public/
+
+./frankenphp-linux-x86_64 php-cli composer.phar create-project sulu/skeleton app
+
+
+
+
+
 
 
 
@@ -53,11 +120,15 @@ a copier dans les pages
 
 
 
+CMSSSSSSSSSSSS////
+./frankenphp-linux-x86_64 php-cli composer.phar require sulu/sulu "doctrine/dbal:^3.6" "doctrine/orm:^2.19" "doctrine/collections:^1.8" "doctrine/doctrine-bundle:^2.12" "doctrine/doctrine-migrations-bundle:^3.3" -d app/ -W
+./frankenphp-linux-x86_64 php-cli app/bin/console sulu:build dev
+
 
 
 
 (((())))
-
+./frankenphp-linux-x86_64 php-server --listen :8081 -r app/public/
 ./frankenphp-linux-x86_64 php-cli app/bin/console cache:clear
 ./frankenphp-linux-x86_64 php-cli app/bin/console doctrine:schema:update --force
 
@@ -71,4 +142,30 @@ a copier dans les pages
 
 ./frankenphp-linux-x86_64 php-cli app/bin/console make:controller WikiController
 
-./frankenphp-linux-x86_64 php-cli app/bin/console make:form WikiPageType WikiPage
+./frankenphp-linux-x86_64 php-cli app/bin/console make:form WikiPageType WikiPage./frankenphp-linux-x86_64 php-server --listen :8081 -r app/public/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,1 +1,28 @@
-powolo
+1. powolo
+
+
+2. Les fonctionnalités "No-Code" natives (Les plus puissantes)
+Souvent, on cherche un plugin alors que Sulu intègre une fonctionnalité native qui remplace des dizaines de lignes de code SQL ou PHP. C'est là que vous gagnerez le plus de temps.
+
+Le "Smart Content" (Contenu Intelligent)
+
+C'est quoi ? C'est un type de champ que vous pouvez ajouter à n'importe quelle page via XML.
+
+Le gain de code : Au lieu d'écrire une requête SQL ou Doctrine pour dire "Affiche-moi les 3 derniers articles de blog de la catégorie 'Sport' qui ont le tag 'Football'", vous configurez simplement un champ smart_content.
+
+Résultat : L'utilisateur final fait ses propres requêtes via l'interface admin (filtres par tags, catégories, dates) et le système vous renvoie les données prêtes à afficher. C'est l'outil n°1 pour éviter le code backend.
+
+Les Snippets (Fragments)
+
+C'est quoi ? Des morceaux de contenu gérés à un seul endroit mais affichables partout (Footer, Sidebar, Header, Liens sociaux).
+
+Le gain de code : Évite de coder des réglages globaux complexes. Vous créez un template XML "Footer", l'utilisateur le remplit, et vous l'injectez partout.
+
+3. Astuces d'architecture pour coder moins
+Si vous voulez vraiment faire un minimum de code, voici la philosophie à adopter avec Sulu :
+
+Tout dans le XML : Ne créez jamais une nouvelle page en PHP si vous pouvez le faire via un fichier de configuration XML (blueprint). Sulu construit la base de données et l'interface admin automatiquement à partir de vos fichiers XML.
+
+Logique dans Twig, pas en PHP : Sulu expose énormément de choses directement dans les vues (Twig). Utilisez les fonctions sulu_content_load ou sulu_navigation_root_tree directement dans vos templates HTML pour éviter de passer par des contrôleurs.
+
+Utilisez les "Blocks" : Au lieu de figer la structure d'une page (ex: Titre + Texte + Image), créez un système de blocs modulaires (Bloc Texte, Bloc Galerie, Bloc Vidéo). L'utilisateur construit sa page comme des Legos. Vous ne codez le bloc qu'une seule fois, et il est réutilisable à l'infini.
