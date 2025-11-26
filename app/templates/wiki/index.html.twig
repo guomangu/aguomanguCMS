@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block body %}
+    
+    {# Appel du composant. On passe le titre en attribut. #}
+    <twig:WikiCard title="{{ page.title }}" backUrl="/admin">
+        
+        {% block content %}
+            {# Tout ce qui est ici va aller dans le corps de la card #}
+            
+            {# Si tu as une image de couverture #}
+            {% if page.image %}
+                <img src="{{ page.image }}" class="w-full h-64 object-cover rounded mb-6 shadow-sm" alt="Cover">
+            {% endif %}
+
+            {# Le contenu Trix (HTML) #}
+            {# <div class="prose max-w-none">
+                {{ page.content|raw }}
+            </div> #}
+        {% endblock %}
+
+    </twig:WikiCard>
+
+{% endblock %}
