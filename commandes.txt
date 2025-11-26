@@ -24,6 +24,12 @@
 ./frankenphp-linux-x86_64 php-cli composer.phar require twig -d app/
 ./frankenphp-linux-x86_64 php-cli app/bin/console make:controller HomeController
 
+
+
+
+
+
+
 //
 ./frankenphp-linux-x86_64 php-cli composer.phar require easycorp/easyadmin-bundle -d app/
 ./frankenphp-linux-x86_64 php-cli app/bin/console make:admin:dashboard
@@ -50,8 +56,15 @@ a copier dans les pages
 
 
 
+(((())))
 
-
-
+./frankenphp-linux-x86_64 php-cli app/bin/console cache:clear
+./frankenphp-linux-x86_64 php-cli app/bin/console doctrine:schema:update --force
 
 (((())))
+
+
+
+./frankenphp-linux-x86_64 php-cli app/bin/console make:entity
+
+./frankenphp-linux-x86_64 php-cli app/bin/console cache:clear

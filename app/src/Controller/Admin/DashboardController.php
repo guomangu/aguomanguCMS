@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Controller\Admin;
+use App\Entity\WikiPage;
+use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator; // <--- Ajoute ça
+use App\Controller\Admin\WikiPageCrudController; // <--- Ajoute ça (Vérifie que le nom est bon)
 
 use EasyCorp\Bundle\EasyAdminBundle\Attribute\AdminDashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -13,7 +16,6 @@ class DashboardController extends AbstractDashboardController
 {
     public function index(): Response
     {
-        return parent::index();
 
         // Option 1. You can make your dashboard redirect to some common page of your backend
         //
@@ -34,6 +36,12 @@ class DashboardController extends AbstractDashboardController
         // (tip: it's easier if your template extends from @EasyAdmin/page/content.html.twig)
         //
         // return $this->render('some/path/my-dashboard.html.twig');
+
+        // On récupère le service qui génère les URLs d'admin
+        $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
+
+        // On redirige vers la liste des WikiPage
+        return $this->redirect($adminUrlGenerator->setController(WikiPageCrudController::class)->generateUrl());
     }
 
     public function configureDashboard(): Dashboard
@@ -46,5 +54,6 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
+        yield MenuItem::linkToCrud('Mes Pages Wiki', 'fa fa-file-text', WikiPage::class);
     }
 }
