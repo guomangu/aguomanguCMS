@@ -1,0 +1,33 @@
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <key>articles_list</key>
+
+    <!--
+        Cette vue pointe vers le template Twig `templates/articles/list.html.twig`
+        qui affichera la liste des articles.
+    -->
+    <view>articles/list</view>
+
+    <properties>
+        <property name="title" type="text_line">
+            <meta>
+                <title lang="en">Title</title>
+                <title lang="fr">Titre</title>
+            </meta>
+        </property>
+
+        <!-- Smart Content du ArticleBundle pour récupérer les articles -->
+        <property name="latest_articles" type="smart_content">
+            <meta>
+                <title lang="en">Latest articles</title>
+                <title lang="fr">Derniers articles</title>
+            </meta>
+            <params>
+                <param name="provider" value="articles"/>
+            </params>
+        </property>
+    </properties>
+</template>
+
+

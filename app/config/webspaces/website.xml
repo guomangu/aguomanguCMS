@@ -14,7 +14,8 @@
 
     <default-templates>
         <default-template type="page">default</default-template>
-        <default-template type="home">homepage</default-template>
+        <!-- Utilise le template `articles_list` pour la page d'accueil (/) -->
+        <default-template type="home">articles_list</default-template>
     </default-templates>
 
     <!-- See: https://docs.sulu.io/en/latest/book/webspaces.html#excluded-templates-optional

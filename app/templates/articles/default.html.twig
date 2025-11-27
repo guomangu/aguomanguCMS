@@ -1,9 +1,8 @@
 {% extends "base.html.twig" %}
 
-{% block content %}
-    <h1>{{ content.title }}</h1>
-
-    <div>
-        {{ content.article|default()|raw }}
+{% for item in content.latest_projects %}
+    <div class="project-card">
+        <h3>{{ item.title }}</h3>
+        <p>Client: {{ item.customer }}</p> <a href="{{ item.routePath }}">Voir le projet</a>
     </div>
-{% endblock %}
+{% endfor %}

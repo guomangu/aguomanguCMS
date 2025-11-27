@@ -1,0 +1,10 @@
+<template xmlns="http://schemas.sulu.io/template/template" ...>
+    <key>project</key>
+    <view>articles/project</view> 
+    <properties>
+        <property name="title" type="text_line"/>
+        <property name="date" type="date"/>
+        <property name="customer" type="text_line"/>
+        <property name="details" type="block">
+    </properties>
+</template>

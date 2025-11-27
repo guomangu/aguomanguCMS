@@ -121,7 +121,6 @@ a copier dans les pages
 
 
 CMSSSSSSSSSSSS////
-./frankenphp-linux-x86_64 php-cli composer.phar require sulu/sulu "doctrine/dbal:^3.6" "doctrine/orm:^2.19" "doctrine/collections:^1.8" "doctrine/doctrine-bundle:^2.12" "doctrine/doctrine-migrations-bundle:^3.3" -d app/ -W
 ./frankenphp-linux-x86_64 php-cli app/bin/console sulu:build dev
 
 
@@ -132,6 +131,9 @@ CMSSSSSSSSSSSS////
 ./frankenphp-linux-x86_64 php-cli app/bin/console cache:clear
 ./frankenphp-linux-x86_64 php-cli app/bin/console doctrine:schema:update --force
 
+./frankenphp-linux-x86_64 php-cli app/bin/console sulu:build phpcr --nodeps
+./frankenphp-linux-x86_64 php-cli app/bin/console sulu:build fixtures --nodeps
+./frankenphp-linux-x86_64 php-cli app/bin/console sulu:build user --nodeps
 (((())))
 
 

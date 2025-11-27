@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Liste des articles (public)</h1>
+
+    <p>
+        <a href="{{ path('art_new') }}">Créer un nouvel article</a>
+    </p>
+
+    {% if arts is not empty %}
+        <ul>
+            {% for art in arts %}
+                <li>
+                    <strong>{{ art.titre }}</strong>
+                    {% if art.image %}
+                        - <img src="{{ art.image }}" alt="{{ art.titre }}" style="max-height: 50px;">
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucun article pour le moment.</p>
+    {% endif %}
+{% endblock %}
+
+

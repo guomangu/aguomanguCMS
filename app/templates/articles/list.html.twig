@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+    <h1>{{ content.title }}</h1>
+
+    {% if content.latest_articles is not empty %}
+        <div class="articles-list">
+            {% for item in content.latest_articles %}
+                <article class="article-card">
+                    <h2>{{ item.title }}</h2>
+
+                    {# Résumé / excerpt de l'article si disponible #}
+                    {% if item.excerptDescription is defined and item.excerptDescription %}
+                        <p>{{ item.excerptDescription|raw }}</p>
+                    {% endif %}
+
+                    <a href="{{ sulu_content_path(item.routePath, item.webspaceKey|default(null)) }}">
+                        Lire l'article
+                    </a>
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Aucun article pour le moment.</p>
+    {% endif %}
+{% endblock %}
+
+
