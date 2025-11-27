@@ -32,6 +32,7 @@
         "ext-iconv": "*",
         "doctrine/doctrine-bundle": "^2.13",
         "doctrine/doctrine-fixtures-bundle": "^3.6 || ^4.0",
+        "doctrine/doctrine-migrations-bundle": "*",
         "friendsofsymfony/http-cache-bundle": "^3.0",
         "handcraftedinthealps/zendsearch": "^2.1",
         "jackalope/jackalope-doctrine-dbal": "^1.10 || ^2.0",
@@ -42,7 +43,6 @@
         "scheb/2fa-trusted-device": "^7.3",
         "stof/doctrine-extensions-bundle": "^1.11",
         "sulu/article-bundle": "*",
-        "sulu/comment-bundle": "*",
         "sulu/community-bundle": "^2.0@dev",
         "sulu/form-bundle": "*",
         "sulu/redirect-bundle": "*",
@@ -56,7 +56,9 @@
         "symfony/monolog-bundle": "^3.4",
         "symfony/runtime": "^7.3",
         "symfony/security-bundle": "^7.3",
-        "symfony/twig-bundle": "^7.3"
+        "symfony/twig-bundle": "^7.3",
+        "twig/extra-bundle": "^2.12|^3.0",
+        "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
         "jangregor/phpstan-prophecy": "^2.0",
@@ -75,6 +77,7 @@
         "symfony/css-selector": "^7.3",
         "symfony/debug-bundle": "^7.3",
         "symfony/error-handler": "^7.3",
+        "symfony/maker-bundle": "*",
         "symfony/thanks": "^1.2",
         "symfony/web-profiler-bundle": "^7.3",
         "vincentlanglet/twig-cs-fixer": "^3.0"

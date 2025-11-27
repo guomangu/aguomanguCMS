@@ -50,5 +50,7 @@ return [
     Sulu\Bundle\ArticleBundle\SuluArticleBundle::class => ['all' => true],
     Sulu\Bundle\RedirectBundle\SuluRedirectBundle::class => ['all' => true],
     Sulu\Bundle\CommunityBundle\SuluCommunityBundle::class => ['all' => true],
-    Sulu\Bundle\CommentBundle\SuluCommentBundle::class => ['all' => true],
+    Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
+    Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
+    Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle::class => ['all' => true],
 ];
